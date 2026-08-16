@@ -101,6 +101,6 @@ High-level steps to deploy this app on ECS:
 
 2. **Create ECS Task Definition** — specify the ECR image, port 80, memory/CPU limits
 
-3. **Create ECS Service** — attach to a cluster, configure desired count, link to a load balancer
+3. **Create ECS Service** — attach to a cluster, configure desired count, link to a load balancer.
 
 4. **Configure ALB** — target group pointing to port 80, use `/health` as the health check path.
