@@ -2,4 +2,4 @@ services:
   webapp:
     image: flask-app-ecs-image:v1
     ports:
-      - "85:80"
+      - "86:80"
