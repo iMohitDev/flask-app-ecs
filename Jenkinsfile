@@ -1,3 +1,50 @@
+@Library("Sharedlibrary") _
+pipeline {
+    agent {label "agentubuntu"}
+
+    stages {
+        stage('Hello') {
+            steps {
+                script{
+                    hello()
+                }
+            }
+        }
+        
+        stage("Code"){
+            steps{
+                clone("https://github.com/LondheShubham153/flask-app-ecs.git","main")
+            }
+        }
+        
+        stage("Build"){
+            steps{
+                echo "This is Building the code"
+                docker_build("cmsingh007", "flask-app-ecs-image","v2")
+               // sh "docker build -t flask-app-ecs-image:v1 ."
+            } 
+        }
+        
+        stage("Push to DockerHub"){
+             steps{
+                 echo "This is Pushing Image to the DockerHub"
+                 docker_push("cmsingh007", "flask-app-ecs-image","v2")
+            }           
+        }
+        
+        stage("Deploy"){
+            steps{
+                echo "This is Deploying the code"
+                docker_compose()
+            }            
+        }
+        
+    }
+    
+}
+
+
+/*  Below was the first pipeline 
 pipeline{
     
     agent {label "agentubuntu"}
@@ -39,3 +86,4 @@ pipeline{
     }
     
 }
+*/
