@@ -66,14 +66,13 @@ pipeline{
         stage("Push to DockerHub"){
              steps{
                  echo "This is Pushing Image to the DockerHub"
-             /*    withCredentials([usernamePassword(credentialsId:"docker-login",
-                 passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")])
-                 {
-                 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                 sh "docker image tag flask-app-ecs-image:v1 ${env.dockerHubUser}/testingpage:v1"
-                 sh "docker push ${env.dockerHubUser}/testingpage:v1"
-                 }
-            */     
+             //    withCredentials([usernamePassword(credentialsId:"docker-login",
+             //    passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")])
+             //    {
+             //    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+             //    sh "docker image tag flask-app-ecs-image:v1 ${env.dockerHubUser}/testingpage:v1"
+             //    sh "docker push ${env.dockerHubUser}/testingpage:v1"
+             //    }     
             }           
         }
         stage("Deploy"){
