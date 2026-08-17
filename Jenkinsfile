@@ -13,7 +13,7 @@ pipeline {
         
         stage("Code"){
             steps{
-                clone("https://github.com/LondheShubham153/flask-app-ecs.git","main")
+                clone("https://github.com/iMohitDev/flask-app-ecs.git","main")
             }
         }
         
@@ -35,8 +35,7 @@ pipeline {
         stage("Deploy"){
             steps{
                 echo "This is Deploying the code"
-                // docker_compose()
-                sh "docker compose down && docker compose up -d"
+                docker_compose()
             }            
         }
         
